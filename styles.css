@@ -1,6 +1,5 @@
 body {
     font-family: Arial, sans-serif;
-    overflow: auto;
     margin: 0;
 }
 
@@ -18,7 +17,6 @@ body {
     justify-content: left;
     width: 100%;
     height: 10vh;
-    float: left;
     display: flex;
 }
 
@@ -38,12 +36,10 @@ body {
     flex-grow: 1;
     display: flex;
     flex-wrap: wrap;
-    clear: both;
 }
 
 .left-column {
     width: 60%;
-    display: flex;
 }
 
 .right-column {
@@ -59,6 +55,8 @@ body {
     display: flex;
     float: left;
     margin-right: 15%;
+    overflow: auto;
+    overflow-wrap: break-word;
 }
 
 .block3 {
@@ -66,8 +64,8 @@ body {
     width: 30%;
     height: 80vh;
     float: left;
-    margin-right: 10px;
-    left: 0;
+    overflow: auto;
+    overflow-wrap: break-word;
 }
 
 .block4 {
@@ -75,24 +73,24 @@ body {
     width: 100%;
     height: 15vh;
     float: right;
-    clear: both;
-    overflow: hidden;
+    overflow: auto;
+    overflow-wrap: break-word;
 }
 
 .block5 {
     background-color: white;
     width: 25vh;
     height: 65vh;
-    align-items: center;
-    justify-content: center;
+    overflow: auto;
+    overflow-wrap: break-word;
 }
 
 .block6 {
     background-color: lightgreen;
     width: 25vh;
     height: 65vh;
-    align-items: center;
-    justify-content: center;
+    overflow: auto;
+    overflow-wrap: break-word;
 }
 
 .under-blocks {
