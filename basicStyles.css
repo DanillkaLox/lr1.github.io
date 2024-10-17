@@ -15,41 +15,39 @@ body {
 .block1 {
   background-color: lightblue;
   height: 10%;
-  display: flex;
+  text-align: left;
 }
 
 .block7 {
   background-color: lightblue;
-  justify-content: right;
   height: 10%;
-  display: flex;
+  text-align: right;
 }
 
 .main-content {
-  display: flex;
   height: 80%;
-  flex-wrap: wrap;
   overflow-y: auto;
 }
 
 .left-column {
+  float: left;
   width: 60%;
+  height: 100%;
 }
 
 .right-column {
+  float: right;
   width: 40%;
-  display: flex;
-  flex-direction: column;
+  height: 100%;
 }
 
 .block2 {
   background-color: peachpuff;
-  width: 40%;
   height: 100%;
-  display: flex;
+  width: 40%;
+  overflow: auto;
   float: left;
   margin-right: 15%;
-  overflow: auto;
   text-align: left;
 }
 
@@ -62,60 +60,56 @@ body {
 }
 
 .under-blocks {
-  height: 100%;
+  height: 82.5%;
 }
 
 .block4 {
   background-color: peachpuff;
-  width: 100%;
-  height: 20%;
+  height: 17.5%;
   overflow: auto;
   overflow-wrap: break-word;
 }
 
 .block5 {
+  background-color: white;
   width: 40%;
+  height: 100%;
+  float: left;
   overflow: auto;
   overflow-wrap: break-word;
+  margin-right: 20%;
 }
 
 .block6 {
   background-color: lightgreen;
   width: 40%;
+  height: 100%;
+  float: left;
   overflow: auto;
   overflow-wrap: break-word;
-}
-
-.under-blocks {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
 }
 
 .image-container img {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  display: block;
 }
 
 @media screen and (max-width: 875px) {
-  .left-column,
-  .right-column {
+  .left-column {
+    float: left;
     width: 100%;
   }
-
-  .block2,
-  .block5,
-  .block6 {
+  .right-column {
+    float: left;
+    width: 100%;
+  }
+  .block3,
+  .block2 {
     width: 40%;
   }
 
-  .block4 {
-    height: 100%;
-  }
-
-  .block3 {
-    width: 45%;
+  .block2 {
+    margin-right: 20%;
   }
 }
