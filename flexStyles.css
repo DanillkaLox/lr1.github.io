@@ -6,7 +6,7 @@ body {
 }
 
 .block {
-  padding: 20px;
+  padding: 10px;
   border: 1px solid #000;
   text-align: center;
   box-sizing: border-box;
@@ -90,14 +90,6 @@ body {
 }
 
 @media screen and (max-width: 875px) {
-  .left-column,
-  .right-column {
-    flex: 1;
-    width: 100%;
-  }
-  .block2,
-  .block3,
-  .block4,
   .block5,
   .block6 {
     width: 100%;
@@ -107,7 +99,12 @@ body {
     margin-right: 0;
   }
 
+  .block2 {
+    margin-right: 20%;
+    flex: 1;
+  }
+
   .block5 {
-    margin-right: 15%;
+    margin-right: 20%;
   }
 }
