@@ -5,6 +5,11 @@ document
     const titleInput = document.querySelector(".title");
     const contentInput = document.querySelector(".content");
 
+    if (contentInput.value.length < 1 || titleInput.value.length < 1) {
+      alert("The header and content must have atleast 1 character!");
+      return;
+    }
+
     if (titleInput.value.length > 25) {
       alert("The header cannot be longer than 25 characters!");
       return;
