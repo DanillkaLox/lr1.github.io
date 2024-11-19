@@ -119,3 +119,35 @@ body {
     width: 45%;
   }
 }
+
+.accordion-container .accordion {
+  border: 1px solid #000000;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.accordion h3 {
+  margin: 0;
+  padding: 10px;
+  background-color: lightblue;
+}
+
+.accordion div {
+  padding: 10px;
+  display: none;
+  background-color: rgb(255, 255, 255);
+  border-top: 1px solid #000000;
+}
+
+/* Стили формы */
+
+.accordionForm input,
+.accordionForm textarea,
+.accordionForm button {
+  font-size: 120%;
+  padding: 5%;
+  border: 1px solid #000000;
+  border-radius: 5px;
+  box-sizing: border-box;
+  width: 100%;
+}
