@@ -189,7 +189,7 @@ footer nav a:hover {
   transition: 0.3s;
 }
 
-@media (max-width: 860px) or (max-height: 750px) {
+@media (max-width: 900px) or (max-height: 750px) {
   .body {
     overflow: auto;
   }
