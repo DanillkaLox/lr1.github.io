@@ -52,7 +52,18 @@ document.addEventListener("DOMContentLoaded", () => {
     inputForm.addEventListener("submit", (e) => {
       e.preventDefault();
       const number = document.getElementById("numberInput").value;
-      const minDigit = Math.min(...number.split("").map(Number));
+
+      if (!/^-?\d+$/.test(number)) {
+        alert("Please enter a valid number.");
+        return;
+      }
+
+      const minDigit = Math.min(
+        ...number
+          .split("")
+          .filter((c) => /\d/.test(c))
+          .map(Number)
+      );
       alert(`The minimum number: ${minDigit}`);
       document.cookie = `minDigit=${minDigit}; path=/;`;
     });
@@ -72,9 +83,12 @@ document.addEventListener("DOMContentLoaded", () => {
       "Enter the color of the text (in English):",
       savedColor || "black"
     );
-    if (newColor) {
+
+    if (newColor && /^[a-zA-Z]+$/.test(newColor)) {
       block6.style.color = newColor;
       localStorage.setItem("block6Color", newColor);
+    } else if (newColor) {
+      alert("Invalid color input. Please try again.");
     }
   });
 });
@@ -94,8 +108,8 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!form) {
         form = document.createElement("form");
         form.innerHTML = `
-            <label for="cellCount">The number of cells:</label>
-            <input type="number" id="cellCount" required min="1" />
+            <label for="cellCount">The number of cells (max 10):</label>
+            <input type="number" id="cellCount" required min="1" max="10" />
             <button type="submit">Create a table</button>
           `;
         block.appendChild(form);
@@ -104,6 +118,12 @@ document.addEventListener("DOMContentLoaded", () => {
           e.preventDefault();
 
           const cellCount = Number(document.getElementById("cellCount").value);
+
+          if (cellCount > 10) {
+            alert("The number of cells cannot exceed 10!");
+            return;
+          }
+
           const table = document.createElement("table");
           const row1 = document.createElement("tr");
           const row2 = document.createElement("tr");
@@ -158,6 +178,21 @@ document.addEventListener("DOMContentLoaded", () => {
             alert("The table is saved in LocalStorage!");
           });
 
+          const deleteButton = document.createElement("button");
+          deleteButton.textContent = "Delete the table";
+          deleteButton.style.marginTop = "10px";
+          deleteButton.style.marginLeft = "10px";
+
+          block.appendChild(deleteButton);
+
+          deleteButton.addEventListener("click", () => {
+            table.remove();
+            saveButton.remove();
+            deleteButton.remove();
+            localStorage.removeItem(`tableData${block.className}`);
+            alert("The table has been deleted.");
+          });
+
           form.remove();
           form = null;
         });
@@ -170,9 +205,5 @@ document.addEventListener("DOMContentLoaded", () => {
         form = null;
       }
     });
-  });
-
-  window.addEventListener("beforeunload", () => {
-    localStorage.clear();
   });
 });
