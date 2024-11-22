@@ -26,17 +26,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.addEventListener("DOMContentLoaded", () => {
   const block5 = document.querySelector(".block5");
-  const cookiesData = document.cookie
-    .split("; ")
-    .find((row) => row.startsWith("minDigit="));
+
+  const getCookie = (name) => {
+    const cookieString = document.cookie
+      .split("; ")
+      .find((row) => row.startsWith(`${name}=`));
+    return cookieString ? cookieString.split("=")[1] : null;
+  };
+
+  const deleteCookie = (name) => {
+    document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+  };
+
+  const cookiesData = getCookie("minDigit");
 
   if (cookiesData) {
-    const minDigit = cookiesData.split("=")[1];
-    const saveData = confirm(`Cookies store the value of: ${minDigit}. Save?`);
+    const saveData = confirm(
+      `Cookies store the value of: ${cookiesData}. Save?`
+    );
     if (saveData) {
       alert("Cookies are saved. Please reload the page to continue.");
     } else {
-      document.cookie = "minDigit=; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+      deleteCookie("minDigit");
       location.reload();
     }
   } else {
